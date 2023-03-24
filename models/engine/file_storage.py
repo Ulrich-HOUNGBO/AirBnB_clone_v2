@@ -60,7 +60,7 @@ class FileStorage:
         Deletes an obj
         """
         if obj is not None:
-            key = str(obj.__class__.__name__) + "." + str(obj.id)
+            key = obj.__class__.__name__ + "." + obj.id
             if key in self.__objects:
                 self.__objects.pop(key, None)
             self.save()
