@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""
+'''
     Package initializer
-"""
+'''
 from os import getenv
 from models.base_model import BaseModel
 from models.user import User
