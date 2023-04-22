@@ -1,3 +1,10 @@
+#!/usr/bin/python3
+"""
+script starts Flask web app
+    listen on 0.0.0.0, port 5000
+    routes: /: display "Hello HBNB!"
+"""
+
 from flask import Flask
 
 app = Flask(__name__)
