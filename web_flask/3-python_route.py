@@ -30,6 +30,12 @@ def c_text(text):
 
 @app.route('/python/<text>', strict_slashes=False)
 def python_text(text="is cool"):
+    """
+    display custom text given
+       first route statement ensures it works for:
+          curl -Ls 0.0.0.0:5000/python ; echo "" | cat -e
+          curl -Ls 0.0.0.0:5000/python/ ; echo "" | cat -e
+    """
     return 'Python {}'.format(text.replace('_', ' '))
 
 
