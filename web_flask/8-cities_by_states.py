@@ -9,13 +9,12 @@ script starts Flask web app
             /number/<n>:          display "n is a number" only if int
             /number_template/<n>: display HTML page only if n is int
             /number_odd_or_even/<n>: display HTML page; display odd/even info
-            /states_list:         display HTML and state info from storage;
+            /states_list:         display HTML and state info from storage
             /cities_by_states:    display HTML and state, city relations
 """
 from models import storage
 from models import *
 from flask import Flask, render_template
-
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
@@ -85,7 +84,7 @@ def html_fetch_states():
     """display html page
        fetch sorted states to insert into html in UL tag
     """
-    state_objs = list(storage.all("State").values())
+    state_objs = [s for s in storage.all("State").values()]
     return render_template('7-states_list.html',
                            state_objs=state_objs)
 
@@ -93,12 +92,12 @@ def html_fetch_states():
 @app.route('/cities_by_states')
 def html_fetch_cities_by_states():
     """display html page
-           fetch sorted states to insert into html in UL tag
-           fetch sorted cities in each state into LI tag ->in HTML file
-        """
-    states_objs = list(storage.all("States").values())
+       fetch sorted states to insert into html in UL tag
+       fetch sorted cities in each state into LI tag ->in HTML file
+    """
+    state_objs = [s for s in storage.all("State").values()]
     return render_template('8-cities_by_states.html',
-                           states_objs=states_objs)
+                           state_objs=state_objs)
 
 
 if __name__ == "__main__":
