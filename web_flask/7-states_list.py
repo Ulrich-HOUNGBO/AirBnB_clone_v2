@@ -80,7 +80,7 @@ def teardown(self):
 def states_list():
     """Display HTML page """
     states = [s for s in storage.all("State").values()]
-    return render_template('7-states_list.html', states)
+    return render_template('7-states_list.html', states=states)
 
 
 if __name__ == "__main__":
