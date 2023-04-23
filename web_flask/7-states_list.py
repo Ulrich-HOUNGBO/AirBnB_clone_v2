@@ -79,8 +79,9 @@ def teardown(self):
 
 @app.route('/states_list')
 def states_list():
-    """Display HTML page """
-    states = [s for s in storage.all("State").values()]
+    """display html page
+       fetch sorted states to insert into html in UL tag"""
+    states = list(storage.all("State").values())
     return render_template('7-states_list.html', states=states)
 
 
