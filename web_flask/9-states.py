@@ -111,7 +111,7 @@ def html_by_stateID(id):
     state_obj = None
     for state in storage.all("State").values():
         if state.id == id:
-            state = state_obj
+           state_obj = state
     return render_template('9-states.html',
                            state_obj=state_obj)
 
