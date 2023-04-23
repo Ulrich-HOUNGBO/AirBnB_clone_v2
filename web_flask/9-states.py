@@ -9,7 +9,7 @@ script starts Flask web app
             /number/<n>:          display "n is a number" only if int
             /number_template/<n>: display HTML page only if n is int
             /number_odd_or_even/<n>: display HTML page; display odd/even info
-            /states_list:         display HTML and state info from storage
+            /states_list & /states:  display HTML and state info from storage
             /cities_by_states:    display HTML and state, city relations
             /states/<id>:         display HTML and state, city given state id
 """
@@ -80,12 +80,13 @@ def tear_down(self):
     storage.close()
 
 
+@app.route('/states')
 @app.route('/states_list')
 def html_fetch_states():
     """display html page
        fetch sorted states to insert into html in UL tag
     """
-    state_objs = list(storage.all("State").values())
+    state_objs = [s for s in storage.all("State").values()]
     return render_template('7-states_list.html',
                            state_objs=state_objs)
 
@@ -96,22 +97,20 @@ def html_fetch_cities_by_states():
        fetch sorted states to insert into html in UL tag
        fetch sorted cities in each state into LI tag ->in HTML file
     """
-    state_objs = list(storage.all("State").values())
+    state_objs = [s for s in storage.all("State").values()]
     return render_template('8-cities_by_states.html',
                            state_objs=state_objs)
 
 
-
 @app.route('/states/<id>')
-def html_by_stateID(id):
-    """
-    display html page; customize heading with state.name
+def html_if_stateID(id):
+    """display html page; customize heading with state.name
        fetch sorted cities for this state ID into LI tag ->in HTML file
     """
     state_obj = None
     for state in storage.all("State").values():
         if state.id == id:
-           state_obj = state
+            state_obj = state
     return render_template('9-states.html',
                            state_obj=state_obj)
 
