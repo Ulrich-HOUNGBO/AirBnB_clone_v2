@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ExtraIconsSettingsProject">
+    <option name="overrideIDESettings" value="true" />
+    <option name="disabledModelIds">
+      <list>
+        <option value="dir_node_modules_alt2" />
+        <option value="helm_dir" />
+      </list>
+    </option>
+    <option name="ignoredPattern" value="" />
+    <option name="additionalUIScale" value="1.0" />
+    <option name="ignoreWarnings" value="false" />
+  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11" project-jdk-type="Python SDK" />
 </project>
