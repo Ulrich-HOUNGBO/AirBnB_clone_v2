@@ -76,6 +76,7 @@ def html_odd_or_even(n):
 def teardown(self):
     storage.close()
 
+
 @app.route('/states_list')
 def states_list():
     """Display HTML page """
