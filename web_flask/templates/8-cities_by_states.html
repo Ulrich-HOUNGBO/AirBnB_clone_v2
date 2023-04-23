@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>HBNB</title>
 </head>
 <body>
  <UL>
       {% for state in state_objs | sort(attribute='name') %}
         <LI>{{ state.id }}: <B>{{ state.name }}</B>
-        <UL>
-          {% for city in state.cities | sort(attribute='name') %}
-              <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
-          {% endfor %}
-      </UL>
+            <UL>
+              {% for city in state.cities | sort(attribute='name') %}
+                  <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
+              {% endfor %}
+          </UL>
         </LI>
       {% endfor %}
  </UL>
